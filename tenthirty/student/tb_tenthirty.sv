@@ -82,4 +82,9 @@ task set_initaial();
 	btn_r = 0;
 endtask
 
+task check_ans();
+	
+endtask 
+
+
 endmodule
