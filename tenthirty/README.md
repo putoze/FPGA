@@ -78,12 +78,12 @@ led[0] : 玩家贏 ; led[1] : 莊家贏 ; led[2] : DONE STATE
 ### Data Config
 - LUT(look up table)
 <p align="left">
-  <img src="pic/LUT.PNG" width="500" heigh ="300"/>
+  <img src="pic/LUT.png" width="500" heigh ="300"/>
 </p>
 
 - TenThirty
 <p align="left">
-  <img src="pic/tenthirty.PNG" width="500" heigh ="300"/>
+  <img src="pic/tenthirty.png" width="500" heigh ="300"/>
 </p>
 
 
