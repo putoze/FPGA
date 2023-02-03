@@ -3,7 +3,6 @@ module LUT (
     input  rst_n,  // Asynchronous reset active low
     input  pip,
     output reg [3:0] number,
-    output reg empty
 );
 
 //Poker_mem
@@ -30,15 +29,6 @@ always @(posedge clk or negedge rst_n) begin
     end
     else begin
         number <= 'd0;
-    end
-end
-
-always @(posedge clk or negedge rst_n) begin
-    if(~rst_n) begin
-        empty <= 0;
-    end
-    else if(pointer == 51 && pip)begin
-        empty <= 1;
     end
 end
 
