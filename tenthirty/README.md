@@ -49,10 +49,7 @@
 - 玩家超過10.半的情況下，判定莊家獲勝
 
 比大小完即為完成一個回合，按下btn_r即可開始下個回合 <br>
-遊戲一共進行四個回合，四個回合後須狀態機須切換至DONE STATE，示意圖如下：
-<p align="left">
-  <img src="pic/done.jpg" width="400" heigh ="300"/>
-</p>
+遊戲一共進行四個回合，四個回合後狀態機須切換至DONE STATE
 
 ### 七段顯示器
 
@@ -75,27 +72,34 @@
 <p align="left">
   <img src="pic/handcard.jpg" width="400" heigh ="300"/>
 </p>
+起始手牌為半點，接著補到1，再補到兩次半點，累加數值為2.5，總共補3張牌，總共四張牌 <br>
 左邊三顆七段顯示器則顯示累加數值，如上圖左三顆七段顯示器 <br> <br> <br>
 
-若遇到手牌出現10的情形，則直接顯示0即可，是意圖如下圖最右邊的七段顯示器：
+若遇到手牌出現10的情形，則直接顯示0即可，示意圖如下圖最右邊的七段顯示器：
 <p align="left">
   <img src="pic/handcardTen.jpg" width="400" heigh ="300"/>
 </p>
-
-同理在莊家補牌階段，顯示莊家手牌與累計數值 <br>
+左邊三顆七段顯示器同樣顯示累加數值，左邊數來第三顆七段顯示器若無半點的牌，則維持reset後情形 <br>
+同理在莊家補牌階段，顯示莊家手牌與累計數值 <br><br>
 
 在比較大小階段，左三顆顯示莊家累積點數，右三顆顯示玩家累積點數，示意圖如下：
 <p align="left">
   <img src="pic/compare.jpg" width="400" heigh ="300"/>
 </p>
+右三顆顯示方式與左三顆相同，同樣最左邊表時位數數值，中間表個位數，最右邊表示半點的情況，若無半點，則維持reset後情形<br><br>
 
 ### LED
 完成比大小後，需要亮起LED燈表示完成，亮燈規則如下 <br>
-led[0] : 玩家贏 ; led[1] : 莊家贏 ; led[2] : DONE STATE
+led[0] : 玩家贏 ; led[1] : 莊家贏 ; 
 <p align="left">
   <img src="pic/compare.jpg" width="400" heigh ="300"/>
 </p>
 上圖由於玩家補牌超過十點半，因此判定莊家獲勝，led[1]亮起 <br><br>
+
+led[2]則等四個回合均完成後拉起(即DONE STATE)，示意圖如下：
+<p align="left">
+  <img src="pic/done.jpg" width="400" heigh ="300"/>
+</p>
 
 ### Data Config
 - LUT(look up table)
