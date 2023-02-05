@@ -160,5 +160,5 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 - 成功顯示結果(包含LED燈亮起與玩家、莊家累積點數)(10分)
 3. 四回合後led[2]是否亮起(10分)
 
-
+總分：100分
 
