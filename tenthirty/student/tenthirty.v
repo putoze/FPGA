@@ -123,7 +123,7 @@ end
 //   LUT
 //================================================================
  
-LUT inst_LUT (.clk(clk), .rst_n(rst_n), .pip(pip), .number(number));
+LUT inst_LUT (.clk(d_clk), .rst_n(rst_n), .pip(pip), .number(number));
 
 
 endmodule 
