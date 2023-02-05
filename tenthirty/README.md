@@ -72,7 +72,7 @@
   <img src="pic/reset.jpg" width="500" heigh ="400"/>
 </p>
 
-若抽到11、12、13，則顯示如下圖：
+若抽到11、12、13(半點的情形)，則顯示如下圖：
 <p align="left">
   <img src="pic/seg_display_11_12_13.jpg" width="200" heigh ="300"/>
 </p>
@@ -84,10 +84,11 @@
 起始手牌為半點，接著補到1，再補到兩次半點，累加數值為2.5，總共補3張牌，總共四張牌 <br>
 
 **左邊三顆七段顯示器則顯示累加數值**，如上圖左三顆七段顯示器 <br>
-最左邊表十位數數值，中間表個位數，最右邊表示**半點***的情況，**若無半點，則維持reset後情形**，若有，則如上圖所示
+最左邊表十位數數值，中間表個位數，最右邊表示**半點**的情況，**若無半點，則維持reset後情形**，若有，則如上圖所示
  <br> <br>
 
-**若遇到手牌出現10的情形，則直接顯示0即可**，示意圖如下圖最右邊的七段顯示器：
+<font color=#FF0000>若遇到手牌出現10的情形，則直接顯示0即可</font>
+示意圖如下圖最右邊的七段顯示器：
 <p align="left">
   <img src="pic/handcardTen.jpg" width="500" heigh ="300"/>
 </p>
@@ -161,20 +162,23 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 - 成功顯示結果(包含LED燈亮起與玩家、莊家累積點數)(10分)
 3. 四回合後led[2]是否亮起(10分)
 
-總分：100分
-
+總分：100分 <br>
+<font color=#FF0000>
 **本lab規定的IO以及LUT.v不可以改，違反者0分** <br>
 **一定要使用FSM，違反者分數8折** <br>
+**不可以更動原始.v檔，違反者分數8折** <br>
 **不可以抄襲，違反者0分，抓到兩次者，請退選** <br>
 **如果太多人做不出來，會依完成的程度適當給分，請大家盡力寫**
+</font>
 
 ## 參考資料
-> https://support.discord.com/hc/zh-tw/articles/210298617-Markdown%E8%AA%9E%E6%B3%95101-%E6%96%87%E5%AD%97%E6%A0%BC%E5%BC%8F-%E7%B2%97%E9%AB%94-%E6%96%9C%E9%AB%94-%E5%BA%95%E7%B7%9A-
+[1] Markdown 語法大全<br>
+https://ed521.github.io/2019/08/hexo-markdown/
 
-> https://zh.wikipedia.org/wiki/%E5%8D%81%E9%BB%9E%E5%8D%8A
+[2] 十點半 維基百科 <br>
+https://zh.wikipedia.org/wiki/%E5%8D%81%E9%BB%9E%E5%8D%8A
 
 ## HINT
 
 1. dis_clk需要比d_clk頻率更快
 2. seg7_temp暫存器是用來寫8顆七段顯示器
-3. 可以自行決定要加多少reg跟wire，但不可以更動原始.v檔
