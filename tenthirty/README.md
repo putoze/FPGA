@@ -163,7 +163,7 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 3. 四回合後led[2]是否亮起(10分)
 
 總分：100分 <br><br>
-<font color= #800000>
+<font color= #800000 size = 3>
 **本lab規定的IO以及LUT.v不可以改，違反者0分** <br>
 **一定要使用FSM，違反者分數8折** <br>
 **不可以更動原始.v檔，違反者分數8折** <br>
@@ -182,5 +182,3 @@ https://zh.wikipedia.org/wiki/%E5%8D%81%E9%BB%9E%E5%8D%8A
 
 1. dis_clk需要比d_clk頻率更快
 2. seg7_temp暫存器是用來寫8顆七段顯示器
-
-<font color=#FF0000> test </font>
