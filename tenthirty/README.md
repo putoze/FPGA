@@ -123,12 +123,12 @@ led[2]則等四個回合均完成後拉起(即DONE STATE)，示意圖如下：
   <img src="pic/tenthirty.png" width="500" heigh ="300"/>
 </p>
 
-測試影片如下:
+示範影片如下:
 https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog0h0&index=1 
 
 ## 檢查答案
 
-- Case 1 : reset
+- Case 1 : Reset
 <p align="left">
   <img src="pic/reset.jpg" width="500" heigh ="300"/>
 </p>
@@ -153,7 +153,7 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 
 ## 評分標準
 
-1. reset後七段顯示器符合標準(10分)
+1. Reset後七段顯示器符合標準(10分)
 2. 每回合佔20分，共四回合佔80分 <br>
 - 成功顯示玩家手牌資訊與累積點數(5分)
 - 成功顯示莊家手牌資訊與累積點數(5分)
