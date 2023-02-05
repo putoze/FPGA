@@ -2,7 +2,7 @@ module LUT (
     input  clk,    // Clock
     input  rst_n,  // Asynchronous reset active low
     input  pip,
-    output reg [3:0] number,
+    output reg [3:0] number
 );
 
 //Poker_mem
@@ -21,9 +21,6 @@ always @(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
         number <= 'd0;
     end 
-    else if (empty) begin
-        number <= 'd0;
-    end
     else if (pip) begin
         number <= poker_mem[pointer];
     end

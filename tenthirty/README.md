@@ -60,7 +60,7 @@
 
 七段顯示器Reset後則顯示如下：
 <p align="left">
-  <img src="pic/reset.jpg" width="500" heigh ="300"/>
+  <img src="pic/reset.jpg" width="400" heigh ="300"/>
 </p>
 
 若抽到11、12、13，則顯示如下圖：
@@ -116,3 +116,40 @@ led[2]則等四個回合均完成後拉起(即DONE STATE)，示意圖如下：
 
 測試影片如下:
 https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog0h0&index=1 
+
+## 檢查答案
+
+- Case 1 : reset
+<p align="left">
+  <img src="pic/reset.jpg" width="400" heigh ="300"/>
+</p>
+
+- Case 2 : 顯示手牌資訊與累積點數
+舉例：起始牌:半點，補牌補到1、半點、半點
+<p align="left">
+  <img src="pic/handcard.jpg" width="400" heigh ="300"/>
+</p>
+
+- Case 3 : 顯示結果(包含LED燈亮起與玩家、莊家累積點數)
+範例:如圖
+<p align="left">
+  <img src="pic/compare.jpg" width="400" heigh ="300"/>
+</p>
+
+- Case 4 : 四回合後led[2]是否亮起
+範例:如圖
+<p align="left">
+  <img src="pic/done.jpg" width="400" heigh ="300"/>
+</p>
+
+## 評分標準
+
+1. reset後七段顯示器符合標準(10分)
+2. 每回合佔20分，共四回合佔80分 <br>
+- 成功顯示玩家手牌資訊與累積點數(5分)
+- 成功顯示莊家手牌資訊與累積點數(5分)
+- 成功顯示結果(包含LED燈亮起與玩家、莊家累積點數)(10分)
+3. 四回合後led[2]是否亮起(10分)
+
+
+
