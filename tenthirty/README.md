@@ -1,18 +1,27 @@
 # 遊戲：十點半
 
-- 需要使用工具
-1. 除頻器
-2. FSM
-3. LUT(會事先提供，作為抽撲克牌用)
-4. 3顆LED燈
-5. 兩顆七段顯示器
+## 目錄
+- [遊戲介紹](#遊戲介紹)
+- [Lab介紹](#本Lab遊戲玩法)
+- [七段顯示器](#七段顯示器)
+- [LED](#led)
+- [檢查答案](#檢查答案)
+- [評分標準](#評分標準)
 
-## 規則:
-首先總共兩人玩，分別為玩家與莊家，點數大者即獲勝。 <br>
+## 需要使用工具
+- 除頻器
+- FSM
+- LUT(會事先提供，作為抽撲克牌用)
+- 3顆LED燈
+- 兩顆七段顯示器
+
+## 遊戲介紹:
+十點半是撲克遊戲的一種。 經常被用來賭博。遊戲分為莊家與玩家，
+玩家目標為拿到總點數合大於莊家拿到總點數合，反之則由莊家獲勝，點數均以不超過十點半為原則 <br><br>
+本Lab總共兩人玩，分別為玩家與莊家，點數大者即獲勝。 <br>
 起始玩家會拿到一張牌，拿到的牌會從1到13不等，其中1~10即代表對應的數值 <br>
 11、12、13則代表半點，累積兩個半點可以進位成一點 <br>
-玩家可以自行選擇要補牌與否，同理莊家，補牌上限為五張(包含起始的一張牌) <br>
-玩家目標為拿到總點數和大於莊家拿到總點數和 <br><br>
+玩家可以自行選擇要補牌與否，同理莊家，補牌上限為五張(包含起始的一張牌)  <br><br>
 遊戲決定勝負方式<br>
 舉例: 玩家起始牌 : 3、莊家起始牌 : 9 <br>
 <範例1>
@@ -29,12 +38,12 @@
 玩家補牌補到3，又在補到6，表示目前累積點數12，此時莊家不論補到多少，均算莊家勝出<br><br>
 為了簡化問題，本lab不考慮過五關的問題<br><br>
 
-## 遊戲玩法
-按下btn_m即開始遊戲，首先進入抽牌階段
+## 本Lab遊戲玩法
+每回合從按下btn_m開始遊戲，按下後會進入抽牌階段
 
 ### 抽牌階段:
-由玩家先抽一張牌，接著由莊家抽1張牌，完成後即進入補牌階段，由玩家先開始補牌<br>
-抽牌需要使用LUT.v，首先將此LUT instantiate進tenthirty.v，當需要抽牌時，拉起pip訊號，此時number訊號會延遲一個cycle後送出，此number訊號即表示抽到的牌
+由玩家先抽一張牌，接著由莊家抽1張牌，抽牌需要使用LUT.v <br>
+首先將此LUT instantiate進tenthirty.v，當需要抽牌時，拉起pip訊號，此時number訊號會延遲一個cycle後送出，此number訊號即表示抽到的牌。完成後即進入補牌階段，由玩家先開始補牌<br>
 
 ### 補牌階段:
 同樣使用LUT.v補牌，方式同抽牌階段介紹<br>
@@ -51,16 +60,16 @@
 比大小完即為完成一個回合，按下btn_r即可開始下個回合 <br>
 遊戲一共進行四個回合，四個回合後狀態機須切換至DONE STATE
 
-### 七段顯示器
+## 七段顯示器
 
 七段顯示器顯示數值如下：
 <p align="left">
-  <img src="pic/seg_display.png" width="300" heigh ="300"/>
+  <img src="pic/seg_display.png" width="400" heigh ="300"/>
 </p>
 
 七段顯示器Reset後則顯示如下：
 <p align="left">
-  <img src="pic/reset.jpg" width="400" heigh ="300"/>
+  <img src="pic/reset.jpg" width="500" heigh ="400"/>
 </p>
 
 若抽到11、12、13，則顯示如下圖：
@@ -79,31 +88,31 @@
 
 若遇到手牌出現10的情形，則直接顯示0即可，示意圖如下圖最右邊的七段顯示器：
 <p align="left">
-  <img src="pic/handcardTen.jpg" width="400" heigh ="300"/>
+  <img src="pic/handcardTen.jpg" width="500" heigh ="300"/>
 </p>
 
 同理在莊家補牌階段，顯示莊家手牌與累計數值 <br><br>
 
 在比較大小階段，左三顆顯示莊家累積點數，右三顆顯示玩家累積點數，示意圖如下：
 <p align="left">
-  <img src="pic/compare.jpg" width="400" heigh ="300"/>
+  <img src="pic/compare.jpg" width="500" heigh ="300"/>
 </p>
 右三顆顯示方式與左三顆相同。最左邊表十位數數值，中間表個位數，最右邊表示半點的情況，若無半點，則維持reset後情形<br><br>
 
-### LED
+## LED
 完成比大小後，需要亮起LED燈表示完成，亮燈規則如下 <br>
 led[0] : 玩家贏 ; led[1] : 莊家贏 ; 
 <p align="left">
-  <img src="pic/compare.jpg" width="400" heigh ="300"/>
+  <img src="pic/compare.jpg" width="500" heigh ="300"/>
 </p>
 上圖由於玩家補牌超過十點半，因此判定莊家獲勝，led[1]亮起 <br><br>
 
 led[2]則等四個回合均完成後拉起(即DONE STATE)，示意圖如下：
 <p align="left">
-  <img src="pic/done.jpg" width="400" heigh ="300"/>
+  <img src="pic/done.jpg" width="500" heigh ="300"/>
 </p>
 
-### Data Config
+## Data Config
 - LUT(look up table)
 <p align="left">
   <img src="pic/LUT.png" width="500" heigh ="300"/>
@@ -121,25 +130,25 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 
 - Case 1 : reset
 <p align="left">
-  <img src="pic/reset.jpg" width="400" heigh ="300"/>
+  <img src="pic/reset.jpg" width="500" heigh ="300"/>
 </p>
 
 - Case 2 : 顯示手牌資訊與累積點數
 舉例：起始牌:半點，補牌補到1、半點、半點
 <p align="left">
-  <img src="pic/handcard.jpg" width="400" heigh ="300"/>
+  <img src="pic/handcard.jpg" width="500" heigh ="300"/>
 </p>
 
 - Case 3 : 顯示結果(包含LED燈亮起與玩家、莊家累積點數)
 範例:如圖
 <p align="left">
-  <img src="pic/compare.jpg" width="400" heigh ="300"/>
+  <img src="pic/compare.jpg" width="500" heigh ="300"/>
 </p>
 
 - Case 4 : 四回合後led[2]是否亮起
 範例:如圖
 <p align="left">
-  <img src="pic/done.jpg" width="400" heigh ="300"/>
+  <img src="pic/done.jpg" width="500" heigh ="300"/>
 </p>
 
 ## 評分標準
