@@ -163,7 +163,7 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 3. 四回合後led[2]是否亮起(10分)
 
 總分：100分 <br>
-<font color=#FF0000>
+<font color= "red">
 **本lab規定的IO以及LUT.v不可以改，違反者0分** <br>
 **一定要使用FSM，違反者分數8折** <br>
 **不可以更動原始.v檔，違反者分數8折** <br>
