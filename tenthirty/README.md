@@ -87,7 +87,7 @@
 最左邊表十位數數值，中間表個位數，最右邊表示**半點**的情況，**若無半點，則維持reset後情形**，若有，則如上圖所示
  <br> <br>
 
-<font color=#FF0000>若遇到手牌出現10的情形，則直接顯示0即可</font>
+<font color=#FF0000> 若遇到手牌出現10的情形，則直接顯示0即可</font>
 示意圖如下圖最右邊的七段顯示器：
 <p align="left">
   <img src="pic/handcardTen.jpg" width="500" heigh ="300"/>
@@ -162,8 +162,8 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 - 成功顯示結果(包含LED燈亮起與玩家、莊家累積點數)(10分)
 3. 四回合後led[2]是否亮起(10分)
 
-總分：100分 <br>
-<font color= "red">
+總分：100分 <br><br>
+<font color= #800000>
 **本lab規定的IO以及LUT.v不可以改，違反者0分** <br>
 **一定要使用FSM，違反者分數8折** <br>
 **不可以更動原始.v檔，違反者分數8折** <br>
@@ -182,3 +182,5 @@ https://zh.wikipedia.org/wiki/%E5%8D%81%E9%BB%9E%E5%8D%8A
 
 1. dis_clk需要比d_clk頻率更快
 2. seg7_temp暫存器是用來寫8顆七段顯示器
+
+<font color=#FF0000> test </font>
