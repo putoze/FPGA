@@ -60,6 +60,9 @@ wire [3:0] number;
 //================================================================
 
 //seg7_temp
+/*
+Please write your design here.
+*/
 
 //display counter 
 always@(posedge dis_clk or negedge rst_n) begin
