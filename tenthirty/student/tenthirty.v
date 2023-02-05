@@ -19,7 +19,7 @@ module tenthirty(
 //================================================================
 //frequency division
 reg [24:0] counter; 
-wire dis_clk; //seg display clk
+wire dis_clk; //seg display clk, frequency faster than d_clk
 wire d_clk  ; //division clk
 
 //====== frequency division ======
