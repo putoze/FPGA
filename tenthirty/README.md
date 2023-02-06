@@ -172,10 +172,8 @@ https://www.youtube.com/watch?v=MHQ68WXCOEY&list=PLn0-Y9lYJqqvGrmoE9heed0lfZpIog
 </font>
 
 ## 參考資料
-[1] Markdown 語法大全<br>
-https://ed521.github.io/2019/08/hexo-markdown/
 
-[2] 十點半 維基百科 <br>
+[1] 十點半 維基百科 <br>
 https://zh.wikipedia.org/wiki/%E5%8D%81%E9%BB%9E%E5%8D%8A
 
 ## HINT
