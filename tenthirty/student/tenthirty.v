@@ -6,13 +6,16 @@ module tenthirty(
     output reg [7:0] seg7_sel,
     output reg [7:0] seg7,   //segment right
     output reg [7:0] seg7_l, //segment left
-    output reg [2:0] led // led[0] : dealer win, led[1] : player win, led[2] : done
+    output reg [2:0] led // led[0] : player win, led[1] : dealer win, led[2] : done
 );
 
 //================================================================
 //   PARAMETER
 //================================================================
 
+/*
+Please write your FSM parameter here.
+*/
 
 //================================================================
 //   d_clk
@@ -35,34 +38,49 @@ end
 //================================================================
 //   REG/WIRE
 //================================================================
-reg [7:0] seg7_temp[0:7]; //store segment display situation
+//store segment display situation
+reg [7:0] seg7_temp[0:7]; 
+//display counter
 reg [2:0] dis_cnt;
+//LUT IO
+reg  pip;
+wire [3:0] number;
 
 //================================================================
 //   FSM
 //================================================================
 
-//================================================================
-//   I/O
-//================================================================
-reg  pip;
-wire [3:0] number;
+/*
+Please write your FSM design here.
+*/
 
 //================================================================
 //   DESIGN
 //================================================================
 
 
+//seg7_temp
+/*
+Please write your segment display format here.
+*/
 
+/*
+For example, seg7_temp[0] is used for the rightmost segment display.
+*/
+
+//================================================================
+//   LED
+//================================================================
+
+/*
+Please write your led design here.
+*/
+
+//#################### Don't revise the code below ############################## 
 
 //================================================================
 //   SEGMENT
 //================================================================
-
-//seg7_temp
-/*
-Please write your design here.
-*/
 
 //display counter 
 always@(posedge dis_clk or negedge rst_n) begin
@@ -114,10 +132,6 @@ always@(posedge dis_clk or negedge rst_n) begin
         endcase
     end
 end
-
-//================================================================
-//   LED
-//================================================================
 
 //================================================================
 //   LUT
