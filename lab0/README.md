@@ -254,11 +254,53 @@ always @(curr_state) begin
 end
 ```
 
-## Introduce 4 level circuit
-- Behavioral level
-- Dataflow level
-- Gate level or Structural level
-- Switch level
+## Introduce 3 level circuit
+- [Behavioral level](#behavioral-level)
+- [Dataflow level](#dataflow-level)
+- [Gate level or Structural level](#gate-level-or-structural-level)
+
+### Behavioral level
+1. initial block
+- Usually used for writing testbench.
+- non synthesizable
+
+2. always block
+- Used for reg type variable
+- Describing sequential circuit or combinational circuit.
+
+### Dataflow level
+
+```
+wire [1:0] a;
+wire b,c;
+//case 1 
+assign a = {b,c};//concatenate
+//case 2
+assign a = {b,1'b0};//concatenate
+//case 3
+assign a = {2{1'b0}};//concatenate
+```
+
+### Gate level or Structural level
+```
+module comparator( A, B, gt, lt, eq );
+    input A, B;
+    output gt, lt, eq;
+    
+    wire negA, negB;
+    
+    not not1( negA, A );
+    not not2( negB, B );
+    and and1( gt, A, negB );
+    and and2( lt, negA, B );
+    xnor xnor1( eq, A, B );
+    
+endmodule
+```
+<p align="left">
+  <img src="pic/gate_level_example.png" width = "400"/>
+</p>
+
 
 ## REFERENCE
 ```
@@ -270,4 +312,7 @@ https://www.geeksforgeeks.org/introduction-of-sequential-circuits/
 
 3. Mealy vs Moore
 https://unstop.com/blog/difference-between-mealy-and-moore-machine
-```
+
+4. 描述電路的三種層次 - HackMD
+https://hackmd.io/@dppa1008/BJWS5_B_G?type=view
+``` 
