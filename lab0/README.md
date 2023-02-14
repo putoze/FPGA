@@ -301,6 +301,7 @@ endmodule
   <img src="pic/gate_level_example.png" width = "400"/>
 </p>
 
+<div style="page-break-after: always;"></div>
 
 ## REFERENCE
 ```
@@ -315,4 +316,7 @@ https://unstop.com/blog/difference-between-mealy-and-moore-machine
 
 4. 描述電路的三種層次 - HackMD
 https://hackmd.io/@dppa1008/BJWS5_B_G?type=view
+
+5. Verilog Synthesis Methodology
+https://people.ece.cornell.edu/land/courses/ece5760/Verilog/coding_and_synthesis_with_verilog.pdf 
 ``` 
