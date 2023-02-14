@@ -1,8 +1,8 @@
 # Lab 0 introduction
 
 ## Index
-### &emsp;&emsp; [Sequential circuit introduce](#the-difference-between-combinational-circuit-and-sequential-circuit)
-### &emsp;&emsp; [Coding Guide line](#coding-guide-line-1)
+### &emsp;&emsp; [Sequential Circuit Introduction](#the-difference-between-combinational-circuit-and-sequential-circuit)
+### &emsp;&emsp; [Coding Style](#coding-style-1)
 #### &emsp;&emsp;&emsp;&emsp; [Naming conventions](#naming-conventions-1)
 #### &emsp;&emsp;&emsp;&emsp; [Reg/Wire declaration](#regwire-declaration-1)
 #### &emsp;&emsp;&emsp;&emsp; [Coding Precautions](#coding-precautions-1)
@@ -20,7 +20,7 @@
   <img src="pic/combinational_circuit.png" />
 </p>
 
-- Take some combinational logic circuits for example, logic gate(ex: and, or...), MUX, Decoder, Selector...
+- Take some combinational logic circuits for example. Logic gate(e.g. and, or...), MUX, Decoder, Selector...
 
 - Coding example: 
 
@@ -40,8 +40,9 @@ end
 <div style="page-break-after: always;"></div>
 
 ### Sequential Circuit
+
 <p align="left">
-  <img src="pic/sequentail_circuit.png" />
+  <img src="pic/sequential_circuit.png" />
 </p>
 
 - Sequential elements are used for storage 
@@ -67,7 +68,7 @@ end
 
 <div style="page-break-after: always;"></div>
 
-## Coding Guide line
+## Coding Style
 
 ### Naming conventions
 - rst for reset, clk for clock
@@ -105,6 +106,7 @@ assign, always block, called sub-modules, if-else if-else, cases, parameter, ope
 </p>
 
 - Data has to be described in one always block, for example<br>
+
 ```
 //multiple source drive is not allow
 always @(posedge clk) begin
@@ -122,6 +124,7 @@ always @(posedge clk) begin
     else out_r <= out_r + 'd1;
 end
 ```
+
 - Only use "<=" when you are writing sequential blocks, and do not use "<=" and "=" in one always block.
 
 - Avoid assigning unknown or high impedance values in your code.
@@ -129,6 +132,7 @@ end
 <div style="page-break-after: always;"></div>
 
 - Bit width must be matching when you are using an assigned statement. For example <br>
+
 ```
 wire [3:0] a; 
 wire [2:0] b; 
@@ -137,10 +141,9 @@ assign a = b // this is not allowed
 
 - Avoid combination feedback circuits, for example <br>
 ```
-//wire feedback is not allow
+//wire feedback is not allowed
 wire [1:0] a = a + 'd1;
-```
-```
+
 //correct
 reg [1:0] a_r;
 wire [1:0] a = a_r + 'd1;
@@ -151,7 +154,67 @@ end
 ```
 
 - Suggest using only a variable in one always block.  
-- Suggest combinational and sequentail logic separating.
+
+```
+reg [1:0] a_r,b_r;
+// bad
+always @(posedge clk) begin
+    if(!rst_n) begin
+        a_r <= 'd0;
+        b_r <= 'd0;
+    end
+    else if(trigger_1) b_r <= 'd1;
+    else a_r <= 'd2;
+end
+
+// good
+always @(posedge clk) begin
+    if(!rst_n) begin
+        a_r <= 'd0;
+    end
+    else a_r <= 'd2;
+end
+always @(posedge clk) begin
+    if(!rst_n) begin
+        b_r <= 'd0;
+    end
+    else if(trigger_1) b_r <= 'd1;
+end
+```
+<div style="page-break-after: always;"></div>
+
+- Suggest combinational and sequential logic separating.
+
+```
+// bad
+always @(posedge clk or negedge rst_n) begin 
+  if(!rst_n) begin
+    cur_state <= IDLE;
+  end 
+  else begin
+    if     (cal_start) cur_state <= CAL;
+    else if(cal_done)  cur_state <= OUT
+    else if(out_done)  cur_state <= IDLE;
+  end
+end
+
+//good
+always @(posedge clk or negedge rst_n) begin 
+  if(!rst_n) begin
+    cur_state <= IDLE;
+  end 
+  else begin
+    cur_state <= next_state;
+  end
+end
+always @(*) begin 
+  case(curr_state)
+    IDLE : next_state = cal_start ? CAL  : IDLE;
+    CAD  : next_state = cal_done  ? OUT  : CAD;
+    OUT  : next_state = out_done  ? IDLE : OUT;
+    default :  next_state = IDLE;
+end
+```
 
 <div style="page-break-after: always;"></div>
 
@@ -222,7 +285,7 @@ end
   <img src="pic/Mealy_vs_Moore.png" />
 </p>
 
-Coding example:
+Coding Example:
 
 ```
 //current state logic
@@ -308,7 +371,7 @@ endmodule
 1. Combinational circuit 
 https://www.javatpoint.com/combinational-logic-circuits-in-digital-electronics
 
-2. Sequentail Circuit
+2. sequential Circuit
 https://www.geeksforgeeks.org/introduction-of-sequential-circuits/
 
 3. Mealy vs Moore
