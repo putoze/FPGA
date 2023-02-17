@@ -1,19 +1,17 @@
-# Lab 0 introduction
+# Important guideline of Verilog
 
 ## Index
-### &emsp;&emsp; [Sequential Circuit Introduction](#the-difference-between-combinational-circuit-and-sequential-circuit)
-### &emsp;&emsp; [Coding Style](#coding-style-1)
-#### &emsp;&emsp;&emsp;&emsp; [Naming conventions](#naming-conventions-1)
-#### &emsp;&emsp;&emsp;&emsp; [Reg/Wire declaration](#regwire-declaration-1)
-#### &emsp;&emsp;&emsp;&emsp; [Coding Precautions](#coding-precautions-1)
-#### &emsp;&emsp;&emsp;&emsp; [Latch](#latch-1)
-#### &emsp;&emsp;&emsp;&emsp; [Reset](#reset-1)
-### &emsp;&emsp; [FSM](#fsm-1)
-### &emsp;&emsp; [REFERENCE](#reference-1)
+- [Sequential Circuit Introduction](#sequential-circuit-introduction)
+- [Coding Style](#coding-style)
+ [Naming conventions](#naming-conventions) <br>
+ [Reg/Wire declaration](#regwire-declaration) <br>
+ [Coding Precautions](#coding-precautions) <br>
+ [Latch](#latch) <br>
+ [Reset](#reset)
+- [FSM](#fsm)
+- [REFERENCE](#reference)
 
-<div style="page-break-after: always;"></div>
-
-## The difference between Combinational circuit and Sequential circuit
+## Sequential Circuit Introduction
 
 ### Combinational Circuit
 <p align="left">
@@ -74,9 +72,9 @@ end
 - rst for reset, clk for clock
 - _n for active-low
 - Using _ rather than - in naming reg/wire
-- Naming must be meaningful
+- **Naming must be meaningful**
 - Naming example: I want to define a flag that represents reg A larger than reg B, it can call A_lr_B or A_larger_B.
-- uppercase letters and lowercase letters are different in Verilog.
+- **uppercase letters and lowercase letters are different in Verilog**.
 - You can use uppercase letters or _  to separate reg/wire naming variables. For example, current_state or currentState.
 - Use uppercase letters for names of constants and user-defined types. <br>
 e.g. `define BUS_LENGTH 32 or localparam BUS_LENGTH = 32
@@ -125,7 +123,7 @@ always @(posedge clk) begin
 end
 ```
 
-- Only use "<=" when you are writing sequential blocks, and do not use "<=" and "=" in one always block.
+- **Only use "<=" when you are writing sequential blocks, and do not use "<=" and "=" in one always block.**
 
 - Avoid assigning unknown or high impedance values in your code.
 
@@ -253,16 +251,60 @@ always @(*) begin
 end
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### Reset
 - Remember to reset all storage elements
 ```
 This can help you avoid accepting unknown signals.
 ```
 
+- synchronous reset
+
+<p align="left">
+  <img src="pic/s_reset.png" />
+</p>
+
+```
+//synchronous  reset
+always @(posedge clock) begin
+    if(reset)
+        q <= 0;
+    else 
+        q <= d;
+end
+```
+
+- asynchronous reset
+
+<p align="left">
+  <img src="pic/as_reset.png" />
+</p>
+
 <div style="page-break-after: always;"></div>
+
+```
+//asynchronous  reset
+//active high
+always @(posedge clock or posedge reset) begin
+    if(reset)
+        q <= 0;
+    else 
+        q <= d;
+end
+//active low
+always @(posedge clock or negedge reset) begin
+    if(!reset)
+        q <= 0;
+    else 
+        q <= d;
+end
+```
+
 
 - Some Poor coding style example
 
+e.g. Reset combine other logic gate
 ```
 //poor example
 always @(posedge clk) begin
@@ -278,11 +320,13 @@ always @(posedge clk) begin
 end
 ```
 
+<div style="page-break-after: always;"></div>
+
 ## FSM 
 - Mealy_vs_Moore
 
 <p align="left">
-  <img src="pic/Mealy_vs_Moore.png" />
+  <img src="pic/Mealy_vs_Moore.png" width = 500/>
 </p>
 
 Coding Example:
@@ -316,6 +360,8 @@ always @(curr_state) begin
     endcase
 end
 ```
+
+<div style="page-break-after: always;"></div>
 
 ## Introduce 3 level circuit
 - [Behavioral level](#behavioral-level)
@@ -360,6 +406,7 @@ module comparator( A, B, gt, lt, eq );
     
 endmodule
 ```
+
 <p align="left">
   <img src="pic/gate_level_example.png" width = "400"/>
 </p>
