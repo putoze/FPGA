@@ -45,6 +45,9 @@ reg [2:0] dis_cnt;
 //LUT IO
 reg  pip;
 wire [3:0] number;
+/*
+Please write your reg/wire here.
+*/
 
 //================================================================
 //   FSM
@@ -58,14 +61,15 @@ Please write your FSM design here.
 //   DESIGN
 //================================================================
 
+//pip 
+/*
+Please write your LUT pip signal here.
+*/
 
 //seg7_temp
 /*
-Please write your segment display format here.
-*/
-
-/*
-For example, seg7_temp[0] is used for the rightmost segment display.
+Please write your segment display format here,
+for example, seg7_temp[0] is used for the rightmost segment display.
 */
 
 //================================================================

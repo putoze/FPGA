@@ -33,7 +33,8 @@ always@(posedge clk) begin
     count <= count + 1;
 end
 
-assign d_clk = count[23];
+//same as your lab1 design
+assign d_clk = ;
 
 initial begin
     rst_n = 1'b1;
