@@ -57,12 +57,12 @@ always @(posedge clk or negedge rst_n) begin
         poker_mem[ 0] <= 4'd10; 
         poker_mem[ 1] <= 4'd13 ; 
         poker_mem[ 2] <= 4'd8 ; 
-        poker_mem[ 3] <= 4'd2 ; 
+        poker_mem[ 3] <= 4'd3 ; 
         poker_mem[ 4] <= 4'd10; 
         poker_mem[ 5] <= 4'd2 ; 
-        poker_mem[ 6] <= 4'd7 ; 
+        poker_mem[ 6] <= 4'd11 ; 
         poker_mem[ 7] <= 4'd11; 
-        poker_mem[ 8] <= 4'd6 ; 
+        poker_mem[ 8] <= 4'd1 ; 
         poker_mem[ 9] <= 4'd5 ; 
         poker_mem[10] <= 4'd1 ; 
         poker_mem[11] <= 4'd4 ; 
@@ -84,10 +84,10 @@ always @(posedge clk or negedge rst_n) begin
         poker_mem[27] <= 4'd7 ; 
         poker_mem[28] <= 4'd7 ; 
         poker_mem[29] <= 4'd9 ; 
-        poker_mem[30] <= 4'd11; 
+        poker_mem[30] <= 4'd7; 
         poker_mem[31] <= 4'd4 ; 
         poker_mem[32] <= 4'd6 ; 
-        poker_mem[33] <= 4'd3 ; 
+        poker_mem[33] <= 4'd2 ; 
         poker_mem[34] <= 4'd9 ; 
         poker_mem[35] <= 4'd12; 
         poker_mem[36] <= 4'd3; 
@@ -98,7 +98,7 @@ always @(posedge clk or negedge rst_n) begin
         poker_mem[41] <= 4'd10; 
         poker_mem[42] <= 4'd12; 
         poker_mem[43] <= 4'd2; 
-        poker_mem[44] <= 4'd1; 
+        poker_mem[44] <= 4'd6; 
         poker_mem[45] <= 4'd13; 
         poker_mem[46] <= 4'd1; 
         poker_mem[47] <= 4'd4; 
