@@ -36,3 +36,6 @@ end
 
 assign btm_pulse = {btn_m,press_flag_m} == 2'b10 ? 1 : 0;
 ```
+
+### Q2 seg_temp使用範例
+
